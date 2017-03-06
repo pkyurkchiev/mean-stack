@@ -3,8 +3,7 @@ var expect = require('chai').expect;
 var request = require('request');
 require('../ex3.js');
 
-describe("Get all products", function ()
-{
+describe("Get all products", function () {
 	// Used to store the result.
     let result;
 	
