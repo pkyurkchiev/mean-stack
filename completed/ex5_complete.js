@@ -1,66 +1,129 @@
 // Required libraries.
-// express, body-parser.
-var express = require('express');
-var app = express();
-var bodyParser   = require('body-parser');
-var mongoDb = require('mongodb');
+var expect = require('chai').expect;
+var request = require('request');
+require('../hol3.js');
 
-// Add rigth mongoDb address.
-var url = "mongodb://localhost:27017/mydb2"
-var products;
-
-mongoDb.MongoClient.connect(url, function (err,db){
-     products = db.collection("products");
-});
-
-// To support JSON-encoded bodies.
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-app.get('/', function (req, res) {
-	// Creating method return default black page.
-	// Return html.
-    let html = '<body style="background:bisque"><h1>Welcome to EX #3</h1></body>';
-    res.send(html);
-});
-
-app.get("/products", function (req,res) {
-	// Create GET type method to return all products or just a single product filter by id.
-	// Check code status 400 and 403 for errors.
-	// Return products.
+describe("Get all products", function () {
+	// Used to store the result.
+    let result;
 	
-    if(req.query.id){
-        var id = Number(req.query.id);
-        products.findOne( { id: id }, function (err, document) {
-            if(err){
-                res.status(400).send(err);
-            }
-            else if(document === null){
-                res.status(403).send("Not found");
-            }
-            else{
-                res.send(document);
-            }
+    // First we call the service.
+    before(function (done) {		
+        // Configure the call with content-type and uri.
+        let options = {
+            headers: { "Content-Type": "application/json"},
+            uri: 'http://localhost:3000/products',
+            json: {}
+        };
+		
+        // Make call
+        request.get(options, function (err, res, body) {
+            result = {err, res, body};
+            done();
         });
-    } else {
-        products.find().toArray(function (err, docs) {
-            res.send(docs);
-        });        
-    }
-});
-
-app.post("/products", function (req,res) {
-	// Create POST type method for insert new product.
-	// Check code status 400 for errors.
-	// Return product list length.
-	
-    products.insert(req.body, function (err, ret) {
-        if(err){
-            res.status(400).send(err);
-        } else {
-            res.send(ret);
-        }
+        
+    });
+	// Catch all conditions.
+	// Conditions: Errors, Status Code 200, Return more then 3 items.
+    it('should execute without errors', function (done) {
+       expect(result.err).to.equal(null);
+       done();
+    });
+    it('should return an http status 200', function (done) {
+       expect(result.res.statusCode).to.equal(200);
+       done();
+    });
+    it('should return three items', function (done) {
+       expect(result.body.length).to.equal(3);
+       done();
     });
 });
-
-app.listen(3000);
+describe("Get one product", function () {
+	// Used to store the result.
+    let result;
+    
+    before(function (done) {
+		// Configure the call with content-type and uri.
+        // Make call.
+        request.get('http://localhost:3000/products?id=3', function (err, res, body) {
+            result = {err, res, body};   
+            done();
+        });
+        
+    });
+	// Catch all conditions.
+	// Conditions: Errors, Status Code 200, Return one specific product.
+    it('should execute without errors', function (done) {
+       expect(result.err).to.equal(null);  
+       done();
+    });
+    it('should return an http status 200', function (done) {
+       expect(result.res.statusCode).to.equal(200);
+       done();
+    });
+    it('should return "Dajm"', function (done) {
+       expect(result.body[0].name).to.equal('Dajm');
+       done();
+    });
+});
+describe("Add one product", function () {
+	// Used to store the result.
+    let result;
+    
+    before(function (done) {
+		// Configure the call with content-type and uri.
+        // Make call.
+        let options = {
+            headers: { "Content-Type": "application/json"},
+            uri: 'http://localhost:3000/products',
+            json: {
+                id: 4,
+                name: "Fransk norgat",
+                price: 8.2
+            }
+        };
+        request.post(options, function (err, res, body) {
+            result = {err, res, body};    
+            done();
+        });
+        
+    });
+	// Catch all conditions.
+	// Conditions: Errors, Status Code 200.
+    it('should execute without errors', function (done) {
+       expect(result.err).to.equal(null);
+       done();
+    });
+    it('should return an http status 200', function (done) {
+       expect(result.res.statusCode).to.equal(200);
+       done();
+    });
+});
+describe("Get all products again", function () {
+	// Used to store the result.
+    var result;
+    
+    before(function (done) {
+		// Configure the call with content-type and uri.
+        // Make call.
+        request.get('http://localhost:3000/products', function (err, res, body) {
+            result = {err, res, body};  
+            done();
+        });
+        
+    });
+	// Catch all conditions.
+	// Conditions: Status Code 200, Get the count of the item + 1.
+    it('should execute without errors', function (done) {
+       expect(result.err).to.equal(null);
+       done();
+    });
+    it('should return an http status 200', function (done) {
+       expect(result.res.statusCode).to.equal(200);
+       done();
+    });
+    it('should return four items', function (done) {
+       expect(result.body.length).to.equal(4);
+       done();
+    });
+});
