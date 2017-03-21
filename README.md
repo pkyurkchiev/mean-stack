@@ -4,7 +4,7 @@ This repository is part of the mean stack course of Plovdiv University
 
 
 ###Node.js
-Node.js, is a development platform built on top of Google's V8 JavaScript virtual machine. Node.js is intended to run on a dedicated HTTP server and to employ a single thread with one process at a time. Node.js applications are events-based and run asynchronously.
+, is a development platform built on top of Google's V8 JavaScript virtual machine. Node.js is intended to run on a dedicated HTTP server and to employ a single thread with one process at a time. Node.js applications are events-based and run asynchronously.
 
 [Download link](https://nodejs.org/en/download/)
 
