@@ -23,6 +23,6 @@ class Penguin extends Bird {
 }
 
 // Penguin object
-let penguin = new Penguin(...);
+let penguin = new Penguin(50, 10);
 penguin.walk(); //walk!
 penguin.swim(); //swim!
