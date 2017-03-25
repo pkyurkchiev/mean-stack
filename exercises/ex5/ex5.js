@@ -1,9 +1,9 @@
 // Required libraries.
 var expect = require('chai').expect;
 var request = require('request');
-require('../ex3.js');
+require('../ex4.js');
 
-describe("Get all products", function () {
+describe('Get all products', function () {
 	// Used to store the result.
     let result;
 	
@@ -16,7 +16,7 @@ describe("Get all products", function () {
 	// Conditions: Errors, Status Code 200, Return more then 3 items.
 });
 
-describe("Get one product", function () {
+describe('Get one product', function () {
 	// Used to store the result.
     let result;
     
@@ -28,7 +28,7 @@ describe("Get one product", function () {
 	// Conditions: Errors, Status Code 200, Return one specific product.
 });
 
-describe("Add one product", function () {
+describe('Add one product', function () {
 	// Used to store the result.
     let result;
     
@@ -40,7 +40,7 @@ describe("Add one product", function () {
 	// Conditions: Errors, Status Code 200.
 });
 
-describe("Get all products again", function () {
+describe('Get all products again', function () {
 	// Used to store the result.
     let result;
     

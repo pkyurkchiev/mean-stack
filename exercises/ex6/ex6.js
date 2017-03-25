@@ -1,14 +1,12 @@
 // Required libraries.
 // express, body-parser.
-var mongoDb = require('mongodb');
+var mongojs = require('mongojs');
 
 // Add rigth mongoDb address.
-var url = "..."
+var url = '...';
 var products;
 
-mongoDb.MongoClient.connect(url, function (err,db){
-     products = db.collection("products");
-});
+// connection to mongodb
 
 // To support JSON-encoded bodies.
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,13 +17,13 @@ app.get('/', function (req, res) {
 	// Return html.
 });
 
-app.get("/products", function (req,res) {
+app.get('/products', function (req, res) {
 	// Create GET type method to return all products or just a single product filter by id.
 	// Check code status 400 and 403 for errors.
 	// Return products.
 });
 
-app.post("/products", function (req,res) {
+app.post('/products', function (req, res) {
 	// Create POST type method for insert new product.
 	// Check code status 400 for errors.
 	// Return product list length.

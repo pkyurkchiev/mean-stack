@@ -20,12 +20,12 @@ app.get('/', function (req, res) {
 	// Return html.
 });
 
-app.get("/products", function(req,res) {
+app.get('/products', function(req,res) {
 	// Create GET type method to return all products or just a single product filter by id.
 	// Return products.
 });
 
-app.post("/products", function(req,res) {
+app.post('/products', function(req,res) {
 	// Create POST type method for insert new product.
 	// Return product list length.
 });
