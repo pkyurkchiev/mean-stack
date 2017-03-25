@@ -34,7 +34,7 @@ router.post('/tasks', function (req, res, next) {
     } else {
         db.tasks.save(task, function (err, task) {
             if (err) {
-                res.send(task);
+                res.send(err);
             }
             res.json(task);
         });

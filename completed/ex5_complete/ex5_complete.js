@@ -1,9 +1,10 @@
 // Required libraries.
+// npm install mocha chai request express --save
 var expect = require('chai').expect;
 var request = require('request');
-require('../hol3.js');
+require('../hol4.js');
 
-describe("Get all products", function () {
+describe('Get all products', function () {
 	// Used to store the result.
     let result;
 	
@@ -11,7 +12,7 @@ describe("Get all products", function () {
     before(function (done) {		
         // Configure the call with content-type and uri.
         let options = {
-            headers: { "Content-Type": "application/json"},
+            headers: { 'Content-Type': 'application/json'},
             uri: 'http://localhost:3000/products',
             json: {}
         };
@@ -38,7 +39,7 @@ describe("Get all products", function () {
        done();
     });
 });
-describe("Get one product", function () {
+describe('Get one product', function () {
 	// Used to store the result.
     let result;
     
@@ -61,12 +62,12 @@ describe("Get one product", function () {
        expect(result.res.statusCode).to.equal(200);
        done();
     });
-    it('should return "Dajm"', function (done) {
+    it('should return 'Dajm'', function (done) {
        expect(result.body[0].name).to.equal('Dajm');
        done();
     });
 });
-describe("Add one product", function () {
+describe('Add one product', function () {
 	// Used to store the result.
     let result;
     
@@ -74,11 +75,11 @@ describe("Add one product", function () {
 		// Configure the call with content-type and uri.
         // Make call.
         let options = {
-            headers: { "Content-Type": "application/json"},
+            headers: { 'Content-Type': 'application/json'},
             uri: 'http://localhost:3000/products',
             json: {
                 id: 4,
-                name: "Fransk norgat",
+                name: 'Fransk norgat',
                 price: 8.2
             }
         };
@@ -99,7 +100,7 @@ describe("Add one product", function () {
        done();
     });
 });
-describe("Get all products again", function () {
+describe('Get all products again', function () {
 	// Used to store the result.
     var result;
     
