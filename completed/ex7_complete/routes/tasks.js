@@ -27,8 +27,8 @@ router.get('/tasks/:id', function (req, res, next) {
 router.post('/tasks', function (req, res, next) {
     var task = req.body;
     if (!task.title || !(task.IsDone + '')) {
-        req.status(400);
-        req.json({
+        res.status(400);
+        res.json({
             "error": "Bad Data"
         });
     } else {
