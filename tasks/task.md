@@ -6,7 +6,7 @@
 * Client of the system should be able to search in this list by first name.
 
 #
-## How to download everything with git bash.
+### How to download everything with git bash.
 
 * Clone the repository
   * git clone https://github.com/pkyurkchiev/mean-stack.git
