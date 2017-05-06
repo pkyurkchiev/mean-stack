@@ -1,8 +1,8 @@
 # Task One
 
-* Create new application. The application need to manage list with students. By menage i mean to have CRUD.
+* Create new application. The application need to manage list with students. By manage i mean to have CRUD.
+* Clients of the system should be able to search in this list by first name.
 * Student structure: First Name, Last Name, Uniq number, Faculty number, Birth date.
-* Client of the system should be able to search in this list by first name.
 
 #
 ### How to download last exercises from the course with git bash.
