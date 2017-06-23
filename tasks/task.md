@@ -5,6 +5,10 @@
 * Student structure: First Name, Last Name, Unique number, Faculty number, Birth date.
 
 #
+### What technology stack need to be used
+https://github.com/pkyurkchiev/mean-stack/blob/master/README.md
+
+#
 ### How to download last exercises from the course with git bash.
 
 * Clone the repository
