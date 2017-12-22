@@ -26,14 +26,14 @@ app.get('/products', function (request, response) {
 			if (error) {
 				response.send(error);
 			}
-			response.json(product);
+			response.send(product);
 		});
     } else {
 		db.products.find(function (error, products) {
 			if (error) {
 				response.send(error);
 			}
-			response.json(products);
+			response.send(products);
 		});
     }
 });
@@ -45,16 +45,16 @@ app.post('/products', function (request, response) {
 	
     let product = request.body;
     if (!product.name) {
-        request.status(400);
-        request.json({
-            "erroror": "Bad Data"
+        response.status(400);
+        response.json({
+            "error": "Bad Data"
         });
     } else {
         db.products.save(product, function (error, product) {
             if (error) {
                 response.send(error);
             }
-            response.json(product);
+            response.send(product);
         });
     }
 });
@@ -64,7 +64,7 @@ app.delete('/products/:id', function (request, response) {
         if (error) {
             response.send(error);
         }
-        response.json(product);
+        response.send(product);
     });
 });
 
