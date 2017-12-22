@@ -1,17 +1,14 @@
 # Task One
 
-* Create new application. The application need to manage list with students. By manage i mean to have simple CRUD.
-* Clients of the system should be able to search in this list by first name.
-* Student structure: First Name, Last Name, Unique number, Faculty number, Birth date.
+* Create new application.
+* Application need to manage (must to have CRUD) list with students.
+* Student structure: First Name, Last Name, Uniq number, Faculty number, Birth date.
+* Client of the system should be able to search in this list by first name.
 
 #
-### What technology stack need to be used
-https://github.com/pkyurkchiev/mean-stack/blob/master/README.md
-
-#
-### How to download last exercises from the course with git bash.
+### How to download everything with git bash.
 
 * Clone the repository
   * git clone https://github.com/pkyurkchiev/mean-stack.git
-* Checkout the branch with the completed exercises
+* Checkout the branch that you want
   * git checkout completed
