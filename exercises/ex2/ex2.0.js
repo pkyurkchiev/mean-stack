@@ -41,7 +41,7 @@ function buy(product, callback)
     // Don't forget to call the callback function!
 }
 
-buy(products[2], function(err)
+buy(products[1], function(err)
 {
     if(err)
 	{
