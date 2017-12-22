@@ -9,7 +9,7 @@ var products = [
     {id:5, name:"Laptop - Lenovo IdeaPad 700-15", price:960.99}
 ];
 
-var accountBalance = 3;
+var accountBalance = 300;
 
 function withdraw(amount, callback)
 {
@@ -21,7 +21,7 @@ function withdraw(amount, callback)
     if (amount > accountBalance) {
         callback("Insufficient funds.");
     } else {
-        accountBalance -= amount;
+        accountBalance  = accountBalance - (amount + calculateVAT(amount));
         callback();
     }
 }

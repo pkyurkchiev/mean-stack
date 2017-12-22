@@ -15,33 +15,33 @@ var products = [
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
+app.get('/', function (request, response) {
 	// Creating method return default black page.
 	// Return html.
 	
     var html = '<body style="background: bisque"><h1>Welcome to EX #1</h1></body>';
-    res.send(html);
+    response.send(html);
 });
 
-app.get('/products', function(req,res) {	
+app.get('/products', function(request,response) {	
 	// Create GET type method to return all products or just a single product filter by id.
 	// Return products.
 	
-    if(req.query.id)
+    if(request.query.id)
 	{
-        var response = products.filter( function(product){ return (product.id==req.query.id); } );
-        res.send(response);
+        var response = products.filter( function(product){ return (product.id==request.query.id); } );
+        response.send(response);
     } else {
-        res.send(products);
+        response.send(products);
     }
 
 });
 
-app.post('/products', function(req,res) {
+app.post('/products', function(request,response) {
 	// Create POST type method for insert new product.
 	// Return product list length.
-    products.push(req.body);
-    res.send({count:products.length});
+    products.push(request.body);
+    response.send({count:products.length});
 });
 
 app.listen(3000);

@@ -21,7 +21,7 @@ function withdraw(amount, callback)
     if (amount > accountBalance) {
         callback("Insufficient funds.");
     } else {
-        accountBalance -= amount;
+        accountBalance = accountBalance - (amount + calculateVAT(amount));
         callback();
     }
 }
@@ -59,7 +59,7 @@ function buy(product, callback)
         }
     });
 }
-buy(products[2], function(err)
+buy(products[1], function(err)
 {
     if(err){
         console.log(err);
