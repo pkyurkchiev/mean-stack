@@ -3,7 +3,7 @@
 * Create new application with MEAN stack.
 * Application need to manage list with students. By manage i mean CRUD actions.
 * Student list structure: First Name, Last Name, Uniq number, Faculty number, Birth date.
-* The client of the system should be able to search on the list by first name.
+* The clients of the system should be able to apply search on the list by first name.
 
 #
 ### How to download all exercise with git bash.
