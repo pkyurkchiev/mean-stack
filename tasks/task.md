@@ -1,14 +1,14 @@
 # Task One
 
-* Create new application.
-* Application need to manage (must to have CRUD) list with students.
-* Student structure: First Name, Last Name, Uniq number, Faculty number, Birth date.
-* Client of the system should be able to search in this list by first name.
+* Create new application with MEAN stack.
+* Application need to manage list with students. By manage i mean CRUD actions.
+* Student list structure: First Name, Last Name, Uniq number, Faculty number, Birth date.
+* The client of the system should be able to search on the list by first name.
 
 #
-### How to download everything with git bash.
+### How to download all exercise with git bash.
 
 * Clone the repository
   * git clone https://github.com/pkyurkchiev/mean-stack.git
-* Checkout the branch that you want
+* Checkout to branch completed
   * git checkout completed
