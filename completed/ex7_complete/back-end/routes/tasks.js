@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://pavel:123@ds163016.mlab.com:63016/tasksdb', ['tasks']);
+var db = mongojs('mongodb://pavel:pavel123@ds151228.mlab.com:51228/meanstack12', ['tasks']);
 
 // Get All Tasks
 router.get('/tasks', function (request, response, next) {
@@ -79,7 +79,7 @@ router.put('/tasks/:id', function (request, response, next) {
     }
 });
 
-router.post('/updateAllStatus/', function (request, response, next) {
+router.post('/tasks/updateAllStatus/', function (request, response, next) {
     let body = request.body;
 
     db.tasks.update({}, {$set: { isDone: body.isDone }}, { multi: true }, function (error) {
@@ -90,7 +90,7 @@ router.post('/updateAllStatus/', function (request, response, next) {
     });
 });
 
-router.get('/getByName/:title', function (request, response, next) {
+router.get('/tasks/getByName/:title', function (request, response, next) {
     db.tasks.find({title: {'$regex' : request.params.title, '$options' : 'i'}}, function(error, tasks){
         if(error){
             response.send(error);

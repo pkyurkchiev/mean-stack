@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import {TaskService} from './../services/task.service';
 
 @Component({
-    moduleId: module.id,
-    selector: 'app-root',
-    templateUrl: 'app.component.html',
-    providers: [TaskService]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-
-export class AppComponent { }
+export class AppComponent {
+  title = 'front-end';
+}
