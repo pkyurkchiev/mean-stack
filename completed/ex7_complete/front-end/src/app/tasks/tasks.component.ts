@@ -14,6 +14,10 @@ export class TasksComponent {
     searchValue: string;
 
     constructor(private taskService:TaskService){
+        this.tasks = [];
+        this.title = "";
+        this.multiCheck = false;
+        this.searchValue = "";
         this.taskService.getTasks()
             .subscribe(result =>{
             this.tasks = result;
@@ -21,7 +25,7 @@ export class TasksComponent {
         });
     }
 
-    addTask(event){
+    addTask(event: any){
         event.preventDefault();
         var newTask = {
             title: this.title,
@@ -67,7 +71,7 @@ export class TasksComponent {
         });
     }
 
-    updateAllStatus(event){
+    updateAllStatus(event: any){
         let isDone = false;
         if(event.target.checked)
         {
