@@ -2,6 +2,10 @@
 This repository is part of the mean stack course of Plovdiv University 
 
 
+#
+### Course assignment
+* [Task](https://github.com/pkyurkchiev/mean-stack/blob/master/course-work/README.md)
+
 
 ### Node.js
 Node.js, is a development platform built on top of Google's V8 JavaScript virtual machine. Node.js is intended to run on a dedicated HTTP server and to employ a single thread with one process at a time. Node.js applications are events-based and run asynchronously.
