@@ -1,7 +1,7 @@
 // Required libraries.
 var expect = require('chai').expect;
 var request = require('request');
-require('../ex4.js');
+require('../ex4/ex4.js');
 
 describe('Get all products', function () {
 	// Used to store the result.
@@ -49,7 +49,7 @@ describe('Get all products again', function () {
         // Make call.
     });
     it('should execute without errors', function (done) {
-       expect(result.err).to.equal(null);
+       expect(result.error).to.equal(null);
        done();
     });
 	// Catch all conditions.

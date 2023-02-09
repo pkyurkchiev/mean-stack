@@ -11,21 +11,28 @@ var products = [
 var accountBalance = 1000.00;
 
 function withdraw(amount, callback)
-{
+{	
     // If [amount] is more than [accountBalance] use the 
     //   callback function to pass the error message. Eg callback("Insufficient funds.");
     
     // Otherwise withdraw [amount] from [accountBalance] and call the 
-    //    callback function with no parameters
+    //    callback function with no parameters.
+	
+    if (amount > accountBalance) {
+        callback("Insufficient funds.");
+    } else {
+        accountBalance = accountBalance - (amount + calculateVAT(amount));
+        callback();
+    }
 }
-
 function calculateVAT(amount)
-{
+{	
     // Use the [VAT] constat to calculate the tax from [amount] and return tax.
-}
 
+    return amount * VAT;
+}
 function buy(product, callback)
-{
+{		
     // Call the withdraw function passing in the price of [product]
     //   along with an anonymous function Eg function(err){...}
 
@@ -39,13 +46,24 @@ function buy(product, callback)
     // You bought a Keyboard - Steelseries Apex M800 for $60.25
     // VAT: $12.05
     // Don't forget to call the callback function!
+	
+    withdraw(product.price, function(error)
+	{
+        if (error) {
+            callback(error);
+        } else {
+            let tax = calculateVAT(product.price);
+            console.log('You bought a ' + product.name + ' for $' + product.price);
+            console.log('VAT: $' + tax.toFixed(2));
+            callback();
+        }
+    });
 }
-
 buy(products[1], function(error)
 {
-    if(error) {
+    if(error){
         console.log(error);
     } else {
-        console.log("Your balance is $" + accountBalance.toFixed(2));
+        console.log('Your balance is $' + accountBalance.toFixed(2));
     }
 });
