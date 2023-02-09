@@ -46,10 +46,3 @@ Angular 2 is the next version of Google’s massively popular MV* framework for 
 A powerful GUI platform making your API development faster & easier, from building API requests through testing, documentation and sharing.
 
 [Download link](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop/)
-
-
-#
-### Git
-Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
-
-[Download link](https://git-scm.com/)
